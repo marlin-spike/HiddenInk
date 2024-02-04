@@ -7,8 +7,8 @@ This Flask application provides a web interface for steganography operations, in
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-steganography-app.git
-    cd your-steganography-app
+    git clone https://github.com/marlin-spike/HiddenInk
+    cd HiddenInk
     ```
 
 2. Create and activate a virtual environment:
