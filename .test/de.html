@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css'><link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">    
+    <title>Decoding</title>
+</head>
+
+<body>
+    <center><h2>Decoding</h2></center>
+        
+        <form action="/decode" method="post" enctype="multipart/form-data">
+        <!-- <label for="user_text">Enter Text*</label> -->
+        <!-- <br>
+        <input type="text" id="user_text" name="user_text" placeholder="Text you have to encode..."required>
+        <br> -->
+        
+        <div class="box">
+            <div class="left-container">
+                <!-- Content for the left container -->
+               
+                <img id="image-preview" alt="Image Preview">
+                <br>
+                <br>
+                <div class="Neon Neon-theme-dragdropbox">
+                <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;" name="file" id="image-input" multiple="multiple" type="file" accept=".png, .jpg, .jpeg, .gif" onchange="previewImage(event)">
+                <div class="Neon-input-dragDrop">
+                <div class="Neon-input-inner">
+                <div class="Neon-input-icon">
+                <i class="fa fa-file-image-o">
+                </i>
+                </div>
+                <div class="Neon-input-text">
+                <h3 id="selected-file-name">Select the Image</h3> 
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                <br>
+
+        <label for="pass">Password</label>
+        <br>
+        <input type="text" id="pass" name="key" placeholder="Password">
+        <br>
+        <br>
+        <!-- <button type="submit">Submit</button> -->
+        <button class="w3-button w3-white w3-border w3-border-red w3-round-large" type="submit">Encode</button>
+    </form>
+
+    </div>
+    
+    <div class="input-output-grid--divider flex-shrink-0 md:mx-6 mb-6 md:my-0" role="separator">
+    <div class="bg-r8-gray-6 md:w-px md:h-full h-px w-full"></div>
+</div>
+
+
+    <div class="right-container">
+        <!-- Content for the right container -->
+            <h1>Output</h1>
+            <br>
+
+            {% if result %}
+        <div class="result-box">
+            <p>{{ result }}</p>
+        </div>
+        {% else %}
+        <input type="text" class="output-box" placeholder="Output will be here">
+            {% endif %}
+
+            <!-- <p>This is the content on the right side of the screen.</p> -->
+<!-- <center>        <button class="w3-button w3-white w3-border w3-border-red w3-round-large" name="Download Encoded Image" type="submit">Download</button> -->
+<!-- </center> -->
+<a href="{{ url_for('index') }}" class="link">Encode</a>
+
+    </div>
+</div>
+
+
+ <script>
+        function previewImage(event) {
+            var input = event.target;
+            var preview = document.getElementById('image-preview');
+
+            var reader = new FileReader();
+            reader.onload = function() {
+                preview.src = reader.result;
+            };
+
+            if (input.files && input.files[0]) {
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+           function previewImage(event) {
+            var input = event.target;
+            var preview = document.getElementById('image-preview');
+            var selectedFileName = document.getElementById('selected-file-name');
+
+            var reader = new FileReader();
+            reader.onload = function() {
+                preview.src = reader.result;
+            };
+
+            if (input.files && input.files[0]) {
+                reader.readAsDataURL(input.files[0]);
+                selectedFileName.textContent = "Selected file: " + input.files[0].name;
+            } else {
+                selectedFileName.textContent = "Select the Image";
+            }
+        }
+    </script>
+</body>
+</html>
+

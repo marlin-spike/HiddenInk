@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Decoding</title>
+</head>
+<body>
+    <h1>File Decoding Form</h1>
+    <form action="/decode" method="post" enctype="multipart/form-data">
+        <label for="file">Select File:</label>
+        <input type="file" name="file" id="file" required>
+        <br>
+        <label for="key">Secret Key:</label>
+        <input type="text" name="key" id="key" required>
+        <br>
+        <button type="submit">Decode File</button>
+    </form>
+
+    {% if result %}
+        <h2>Decoded Result:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>

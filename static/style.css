@@ -1,0 +1,180 @@
+.Neon {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #494949;
+    position: relative;
+    
+
+}
+.Neon * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.Neon-input-dragDrop {
+    display: block;
+    width: 566px;
+    margin: 0 auto 25px auto;
+    padding: 25px;
+    color: #8d9499;
+    color: #97A1A8;
+    background: #fff;
+    border: 2px dashed #C8CBCE;
+    text-align: center;
+    -webkit-transition: box-shadow 0.3s, border-color 0.3s;
+    -moz-transition: box-shadow 0.3s, border-color 0.3s;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.Neon-input-dragDrop .Neon-input-icon {
+    font-size: 48px;
+    margin-top: -10px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.Neon-input-text h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.Neon-input-text span {
+    font-size: 12px;
+}
+.Neon-input-choose-btn.blue {
+    color: #008BFF;
+    border: 1px solid #008BFF;
+}
+.Neon-input-choose-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8d9496;
+    border-radius: 3px;
+    border: 1px solid #c6c6c6;
+    vertical-align: middle;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+
+/* body{
+    overflow: hidden;
+} */
+
+.box {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* border-top: 2px solid #ccc; */
+}
+
+.left-container {
+    background-color: #ffffff;
+    flex: 1; /* Takes up 1/2 of the available space */
+    height: 100vh; /* Full height of the viewport */
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.right-container {
+    background-color: #ffffff;
+    flex: 1; /* Takes up 1/2 of the available space */
+    height: 100vh; /* Full height of the viewport */
+    box-sizing: border-box;
+    padding: 20px;}
+    
+.input-output-grid--divider {
+display: flex;
+flex-shrink: 0;
+margin-bottom: 81px; /* Adjust as needed */
+margin-top: 2px;
+border: solid #666;
+border-width: thin;
+}
+
+.bg-r8-gray-6 {
+background-color: #e2e2e2; /* Replace with the actual color value */
+}
+
+.md:w-px {
+width: 1px; /* Adjust as needed */
+}
+
+.md:h-full {
+height: 100%;
+}
+
+.h-px {
+height: 1px; /* Adjust as needed */
+}
+
+.w-full {
+width: 100%;
+}
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 20px;
+    margin-left: 22px;
+}   
+
+input[type=text], select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.output-box::placeholder {
+    color: #888;
+  }
+
+  .link {
+    position: absolute;
+    bottom: 590px;
+    right: 14px;
+    margin: 15px; /* Adjust the margin as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.result-box {
+    border: 1.5px solid #ccc; /* Set the border style */
+    padding: 10px; /* Add some padding for better appearance */
+    margin-top: 15px; /* Add margin at the top */
+    border-radius: 4px;
+    font-family: Verdana,sans-serif;
+    display: inline-block;
+    min-width: 615px; /* Set minimum width */
+    min-height: 50px;
+}
