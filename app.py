@@ -64,7 +64,7 @@ def upload_file():
         print("file save")
         os.remove(filename)
         #print("file remove")
-        return_data = send_file(output_filename, mimetype='image/jpeg', as_attachment=True, download_name=output_filename)
+        return_data = send_file(output_filename, mimetype='image/png', as_attachment=True, download_name=output_filename)
         
         os.remove(output_filename)
         
@@ -128,13 +128,18 @@ def decode_file():
                 crypto_steganography = CryptoSteganography(user_secret_key)
             else:
                 crypto_steganography = CryptoSteganography(default_secret_key)
+           
+            # result = crypto_steganography.retrieve(filename)
             try:
                 result = crypto_steganography.retrieve(filename)
             except IndexError as e:
                 result = "Wrong password or image has no hidden message"
+                # os.remove(filename)
 
             os.remove(filename)
+
             
+
             if result is None:
                 result = "Wrong password or image has no hidden message"
 

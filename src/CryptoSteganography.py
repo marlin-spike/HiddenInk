@@ -30,35 +30,18 @@ class CryptoSteganography(object):
         :param data: Information to be encrypted and saved
         :return:
         """
-        # Generate a random initialization vector
         iv = Random.new().read(AES.block_size)
         encryption_suite = AES.new(self.key, AES.MODE_CBC, iv)
 
-        # If it is string convert to byte string before use it
         if isinstance(data, str):
             data = data.encode()
 
-        # Encrypt the random initialization vector concatenated
-        # with the padded data
         cypher_data = encryption_suite.encrypt(iv + pad(data, self.block_size))
 
-        # Convert the cypher byte string to a base64 string to avoid
-        # decode padding error
         cypher_data = base64.b64encode(cypher_data).decode()
 
-        # Hide the encrypted message in the image with the LSB
-        # (Least Significant Bit) technique.
         secret = lsb.hide(input_filename, cypher_data)
-        # Save the image file
-        #secret.save(output_filename)
 
-        # secret_bytes_io = BytesIO()
-        #secret.save(secret_bytes_io, format='PNG')
-
-        # # Rewind the BytesIO object to the beginning
-        # secret_bytes_io.seek(0)
-
-        # return secret_bytes_io
         input_image = Image.open(input_filename)
         image_format = input_image.format
         print(image_format)
