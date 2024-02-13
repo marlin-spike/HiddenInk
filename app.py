@@ -128,8 +128,11 @@ def decode_file():
                 crypto_steganography = CryptoSteganography(user_secret_key)
             else:
                 crypto_steganography = CryptoSteganography(default_secret_key)
+            try:
+                result = crypto_steganography.retrieve(filename)
+            except IndexError as e:
+                result = "Wrong password or image has no hidden message"
 
-            result = crypto_steganography.retrieve(filename)
             os.remove(filename)
             
             if result is None:
