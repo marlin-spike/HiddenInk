@@ -45,6 +45,10 @@ def upload_file():
         file.save(filename)
         #converting the Input file 
         new_filename = convert_to_png(filename, app.config['UPLOAD_FOLDER'])
+        
+        if new_filename is None:
+            return ("error")
+        
         print(new_filename)
 
         #if password id provided then Use it Otherwise use Default passs

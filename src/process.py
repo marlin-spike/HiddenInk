@@ -33,7 +33,7 @@ def convert_to_png(image_path, output_folder, compression_level=6):
         # Save the image as PNG format with compression
         image.save(output_filename, "PNG", optimize=True, quality=compression_level)
         
-        print(f"Image {image_path} has been successfully converted to PNG with compression level {compression_level}.")
+        #print(f"Image {image_path} has been successfully converted to PNG with compression level {compression_level}.")
         return output_filename  # Return the path to the converted PNG image
     except Exception as e:
         print(f"An error occurred while converting the image: {e}")
