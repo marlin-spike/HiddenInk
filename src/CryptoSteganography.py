@@ -7,7 +7,7 @@ from Cryptodome.Util.Padding import pad, unpad
 from stegano import lsb
 from PIL import Image
 
-
+#It handle the encreption of the data
 class CryptoSteganography(object):
     """
     Main class to handle Steganography encrypted data.
@@ -30,6 +30,7 @@ class CryptoSteganography(object):
         :param data: Information to be encrypted and saved
         :return:
         """
+        
         iv = Random.new().read(AES.block_size)
         encryption_suite = AES.new(self.key, AES.MODE_CBC, iv)
 

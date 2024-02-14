@@ -5,24 +5,26 @@ import string
 from PIL import Image
 import os
 
-
+#allowed File for the Encodine 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
-
-
+#it check File is Alowed or not 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
     
+#Iit Genrate a randomtext for the image      
 def generate_random_text(length=4):
     characters = string.ascii_letters + string.digits  # You can customize the character set as needed
     random_text = ''.join(random.choice(characters) for _ in range(length))
     return random_text
 
+#it get the extension of the uploaded file 
 def get_file_extension(file_path):
     # Split the file path into base name and extension
     base_name, extension = os.path.splitext(file_path)
 
 
+#it convert the Unsupported file into the Png formate 
 def convert_to_png(image_path, output_folder, compression_level=6):
     try:
         image = Image.open(image_path)
@@ -38,6 +40,6 @@ def convert_to_png(image_path, output_folder, compression_level=6):
         return None
 
 # Example usage:
-convert_to_png("Untitled.png", "/path/to/output_folder", compression_level=6)
+# convert_to_png("Untitled.png", "/path/to/output_folder", compression_level=6)
 
     
