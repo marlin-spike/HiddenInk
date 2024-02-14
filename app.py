@@ -16,6 +16,7 @@ crypto_steganography = CryptoSteganography(default_secret_key)
 def index():
     return render_template('index.html')
 
+
 @app.route('/hide', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -23,53 +24,40 @@ def upload_file():
 
     file = request.files['file']
     data = request.form['input_for_encoding']
-    #data2 = request.form['key']
-    print(data)
-    #print(data2)
-    
-    #extension = get_file_extension(file)
+
     extension = file.filename.rsplit('.', 1)[1].lower()
     file_name = generate_random_text()
 
     tamp = "output."
     output_filename = file_name + tamp + extension
 
-    #print(extension)
-
     if file.filename == '':
         return redirect(request.url)
 
     if file and allowed_file(file.filename):
-        filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(filename)
+
         
-        #encode_part 
-            #<< checking secrate key >>
+
+        filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        print("filenamea is : ", filename)
+        file.save(filename)
+
+        new_filename = convert_to_png(filename, app.config['UPLOAD_FOLDER'])
+        print(new_filename)
         user_secret_key = request.form.get('key')
         print(user_secret_key)
 
         if user_secret_key:
-            # Use the user's secret key
             crypto_steganography = CryptoSteganography(user_secret_key)
         else:
-            # Use the default secret key
             crypto_steganography = CryptoSteganography(default_secret_key)
 
-        # k.save(output_filename)
-        crypto_steganography.hide(filename, output_filename,  data)
-        # k.save(output_filename)
-
-
-
-        print("file save")
+        crypto_steganography.hide(new_filename, output_filename,  data)
         os.remove(filename)
-        #print("file remove")
+        os.remove(new_filename)
         return_data = send_file(output_filename, mimetype='image/png', as_attachment=True, download_name=output_filename)
-        
         os.remove(output_filename)
-        
         return return_data
-        #return redirect(url_for('index'))
 
     return redirect(request.url)
 
