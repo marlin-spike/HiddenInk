@@ -3,7 +3,7 @@ import os
 from src.process import *
 from src.CryptoSteganography import *
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -120,6 +120,6 @@ def decod():
     return render_template('de.html')
 
 
-if __name__ == '__main__':
+if __name__ == '__main__'zcv:
     app.run(debug=True)
 
