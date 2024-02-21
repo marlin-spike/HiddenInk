@@ -45,8 +45,8 @@ class CryptoSteganography(object):
 
         input_image = Image.open(input_filename)
         image_format = input_image.format
-        print(image_format)
-        print(output_filename)
+        # print(image_format)
+        # print(output_filename)
         # Save the image file with the same format as the input
         secret.save(output_filename, format=image_format)
 

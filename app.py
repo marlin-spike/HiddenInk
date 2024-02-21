@@ -26,7 +26,7 @@ def upload_file():
     file = request.files['file']
     data = request.form['input_for_encoding']        
     user_secret_key = request.form.get('key')
-    print(user_secret_key)
+    # print(user_secret_key)
 
     #checking the Input file Extension 
     extension = file.filename.rsplit('.', 1)[1].lower()
@@ -41,7 +41,7 @@ def upload_file():
     if file and allowed_file(file.filename):
         #storing input file
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        print("filenamea is : ", filename)
+        # print("filenamea is : ", filename)
         file.save(filename)
         #converting the Input file 
         new_filename = convert_to_png(filename, app.config['UPLOAD_FOLDER'])
@@ -49,7 +49,7 @@ def upload_file():
         if new_filename is None:
             return ("error")
         
-        print(new_filename)
+        # print(new_filename)
 
         #if password id provided then Use it Otherwise use Default passs
         if user_secret_key:
