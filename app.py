@@ -117,7 +117,7 @@ def encod():
 
 @app.route('/de')
 def decod():
-    return render_template('de.html')
+return render_template('de.html')
 
 
 if __name__ == '__main__'zcv:
