@@ -52,7 +52,7 @@ The application utilizes the `stegano` library to perform image-based steganogra
 
 For more information about steganography and the libraries used, refer to the respective documentation:
 
-- [stegano Documentation](https://github.com/lovasoa/stegano)
+- [stegano Documentation](https://pypi.org/project/stegano/)
 - [pycryptodome Documentation](https://www.pycryptodome.org/)
 - [Flask Documentation](https://flask.palletsprojects.com/)
 
